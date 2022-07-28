@@ -1,0 +1,14 @@
+{
+    "editor.tabCompletion": "on",
+    "prettier.tabWidth": 3,
+    "terminal.integrated.tabs.focusMode": "singleClick",
+    "emmet.triggerExpansionOnTab": true,
+    "tailwindCSS.emmetCompletions": true,
+    "editor.tabSize": 3,
+    "prettier.insertPragma": false,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.jsxSingleQuote": true,
+    "prettier.proseWrap": "never",
+    "prettier.trailingComma": "all",
+    "prettier.useTabs": true
+}
