@@ -1,14 +1,15 @@
 import React from 'react'
-import {TaskContext} from './../context/TaskProvider'
+
+import { DispachContext } from './../context/TaskProvider'
 import useForm from './../state/useForm';
 
-
-export default function Todoform() {
-  const { addTask } = React.useContext(TaskContext);
+function Todoform() {
+  const dispatch = React.useContext(DispachContext);
 
   const [Input, changehandler,resethandler] = useForm();
   const handlesubmit = (e)=>{
-    addTask(e,Input)
+    e.preventDefault()
+    if(Input.trim()) dispatch({type:"ADD", task:Input})
     resethandler()
   }
 
@@ -23,3 +24,6 @@ export default function Todoform() {
     </div>
   )
 }
+
+
+export default React.memo(Todoform)

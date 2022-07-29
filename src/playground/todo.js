@@ -4,7 +4,7 @@ import TaskProvider from "./../context/TaskProvider";
 import Todoform from "./todoform";
 import Todolists from "./todolists";
 
-export default function Todo() {
+function Todo() {
    return (
       <TaskProvider>
          <div className="flex flex-col  items-center h-full w-full overflow-hidden ">
@@ -18,3 +18,5 @@ export default function Todo() {
       </TaskProvider>
    );
 }
+
+export default React.memo(Todo)

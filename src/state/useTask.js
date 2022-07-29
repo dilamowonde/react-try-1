@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 
 export default function useTask() {
 	const [Tasks, setTasks] = useState([]);
-
+	
 	const addTask = (e, task) => {
 		e.preventDefault();
   task.trim() && setTasks([{ id: uuid(), task, done: false }, ...Tasks]);
