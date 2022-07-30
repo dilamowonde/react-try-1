@@ -1,21 +1,22 @@
 import React from "react";
 
 import { DispachContext } from "./../context/TaskProvider";
+import Usetoggle from './../state/usetoggle';
 import Toedit from './todoedit';
 
 function Todolist(props) {
-	const [edit, setedit] = React.useState(false);
+	const[isEditing, toggle] =  Usetoggle(false)
 	const dispatch  = React.useContext(DispachContext);
 	
 	const editing = () => {
 		return (
-			<Toedit editingdone={setedit} id={props.id} task={props.task}/>
+			<Toedit toggle={toggle} id={props.id} task={props.task}/>
 		);
 	};
 	
 	const listTask = () => {
 		return (
-			<div  className=' w-full flex items-center justify-between px-4 rounded-lg bg-blue-600/75 shadow-2xl my-2'>
+			<div  className='w-full flex items-center justify-between px-4 rounded-lg bg-blue-600/75 shadow-2xl my-2'>
 				<div
 					onClick={() => dispatch({type:"TOGGLE",id:props.id})}
 					className={`flex w-full p-2 font-medium transition-all  duration-1000 ${
@@ -27,7 +28,7 @@ function Todolist(props) {
 					{!props.done && (
 						<button
 							
-							onClick={()=>setedit(true)}
+							onClick={toggle}
 							className='bg-sky-600 border p-1 text-xs text-white rounded-lg text-center w-12 '>
 							<span>Edit</span>
 						</button>
@@ -42,7 +43,7 @@ function Todolist(props) {
 		);
 	};
 
-	if (edit) return editing();
+	if (isEditing) return editing();
 	return listTask();
 }
 

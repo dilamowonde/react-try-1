@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { memo, useContext, useRef } from "react";
 
 import { DispachContext } from "./../context/TaskProvider";
 import { TaskContext } from "./../context/TaskProvider";
@@ -32,7 +32,7 @@ function Todolists() {
 				{todo &&
 					todo.map((Task, i) => {
 						return (
-							<React.Fragment key={i}>
+							<React.Fragment key={Task.id}>
 								<div
 									key={Task.id}
 									draggable
@@ -50,4 +50,4 @@ function Todolists() {
 	);
 }
 
-export default React.memo(Todolists);
+export default memo(Todolists);

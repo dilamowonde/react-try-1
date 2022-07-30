@@ -9,14 +9,12 @@ function Toedit(props) {
 	const handlesubmit = (e) => {
 		e.preventDefault();
 		if (Input.trim() !== "") {
-			// editTask(e, props.id, Input)
-			// console.log({ type: "EDIT", id: props.id, task: Input });
 			dispatch({ type: "EDIT", id: props.id, task: Input });
 		} else {
 			setValue(props.task);
 			e.target.value = props.task;
 		}
-		props.editingdone(false);
+		props.toggle();
 	};
 	return (
 		<li className='w-full flex items-center justify-between px-4 rounded-lg bg-blue-600/75 shadow-2xl my-2'>
